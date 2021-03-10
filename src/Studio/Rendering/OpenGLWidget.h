@@ -116,8 +116,6 @@ class OpenGLWidget : public QOpenGLWidget, protected QOpenGLFunctions
 
 		// callback
 		OpenGLWidgetCallback*			mCallback;
-    
-        QOpenGLContext*                 mContext;
 
 		// text rendering
 		FONScontext*					mFontStashContext;

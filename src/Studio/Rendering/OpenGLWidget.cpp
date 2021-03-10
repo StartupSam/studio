@@ -66,8 +66,6 @@ OpenGLWidget::OpenGLWidget(QWidget* parent) : QOpenGLWidget(parent)
 	// timeline
 	mHasTimeline		= false;
 	mTimelineHeight		= 0.0;
-    
-    mContext            = context();
 
 	// font stash
 	mFontStashContext	= NULL;
