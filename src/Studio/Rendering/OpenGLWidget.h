@@ -56,6 +56,8 @@ class OpenGLWidget : public QOpenGLWidget, protected QOpenGLFunctions
 
 		int GetHeight() const										{ return mHeight; }
 
+		void ScheduleAsyncReInit()									{ mAsyncNeedsReInit = true; }
+
 		/////////////////////////////////////////
 		// text rendering (using font stash and stb)
 		/////////////////////////////////////////
@@ -109,6 +111,8 @@ class OpenGLWidget : public QOpenGLWidget, protected QOpenGLFunctions
 
 		// view settings
 		bool							mIsViewSplitted;
+
+		bool							mAsyncNeedsReInit;
 
 		// callback
 		OpenGLWidgetCallback*			mCallback;

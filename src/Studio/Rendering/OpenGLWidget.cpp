@@ -43,6 +43,8 @@ using namespace Core;
 // constructor
 OpenGLWidget::OpenGLWidget(QWidget* parent) : QOpenGLWidget(parent)
 {
+	mAsyncNeedsReInit	= false;
+
 	mWidth				= 0;
 	mHeight				= 0;
 	mIsViewSplitted		= true;
@@ -163,12 +165,14 @@ void OpenGLWidget::initializeGL()
 
 	initializeOpenGLFunctions();
 
-	DestructFont();
-	InitFont();
-
 	// re-register OpenGL widget
 	GetOpenGLManager()->UnregisterOpenGLWidget(this);
 	GetOpenGLManager()->RegisterOpenGLWidget(this, this);
+
+	mAsyncNeedsReInit = true;
+
+	// schedule async reinitialization for all OpenGL widgets
+	GetOpenGLManager()->OnScheduleAsyncReInit( this );
 }
 
 
@@ -186,6 +190,9 @@ void OpenGLWidget::resizeGL(int width, int height)
 
 	// base class resize
 	QOpenGLWidget::resizeGL(width, height);
+
+	// schedule async reinitialization for all OpenGL widgets
+	//GetOpenGLManager()->OnScheduleAsyncReInit( this );
 }
 
 
@@ -260,6 +267,34 @@ bool OpenGLWidget::PreRendering()
 	// make sure the window dimensions are set correctly
 	if (mWidth < 0 || mHeight < 0)
 		return false;
+
+	// async reinitialization
+	if (mAsyncNeedsReInit == true)
+	{
+		//Timer fontReinitTimer;
+
+		// reinitialize font
+		DestructFont();
+		InitFont();
+
+		//const float fontReinitTiming = fontReinitTimer.GetTime().InMilliseconds();
+		//LogInfo( "Reinitializing font took %.3f ms", fontReinitTiming );
+
+		// DO NOT REMOVE COMMENT!!!
+		// TODO: HACKFIX: Find nice fix for this later on when there is time, this is still way faster than Qt text rendering
+		// and even works on all graphics cards
+		// this is a hacky thing to do as we reinit the font each frame now
+		// reiniting only does generate a new OpenGL texture though which isn't too bad
+		// timings in debug mode on mobile machine turned out that it only needs around 0.05 to 0.15 ms
+		// when doing this we work on all graphics cards which is most important atm
+		//mAsyncNeedsReInit = false;
+	}
+    
+    //if (mContext != context())
+    //{
+    //    mContext = context();
+    //    initializeGL();
+    //}
 
 	GetQtBaseManager()->GetMainWindow()->GetOpenGLFpsCounter().UnPause();
 	mFpsCounter.BeginTiming();

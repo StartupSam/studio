@@ -81,6 +81,8 @@ class OpenGLManager : public QObject
 		static void LogOpenGLContext(QOpenGLContext* context);
 		static void LogSurfaceFormat(const QSurfaceFormat& format);
 
+		void OnScheduleAsyncReInit(OpenGLWidget* widget);
+
 	private:
 		uint32 FindOpenGLItemIndex(QOpenGLWidget* widget);
 
