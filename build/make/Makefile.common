@@ -832,7 +832,6 @@ STUDIO_OBJS_ALL      = Devices/ABM/AbmDriver.o \
                        Rendering/OpenGLWidget.o \
                        Rendering/OpenGLWidget2DHelpers.o \
                        Rendering/OpenGLWidgetCallback.o \
-                       Rendering/TextureManager.o \
                        UnitTests/StudioTestFacility.o \
                        Widgets/BatteryStatusWidget.o \
                        Widgets/BreathingRateWidget.o \

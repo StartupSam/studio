@@ -401,9 +401,6 @@
     <ClCompile Include="..\..\src\Studio\Rendering\OpenGLWidgetCallback.cpp">
       <Filter>Rendering</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Studio\Rendering\TextureManager.cpp">
-      <Filter>Rendering</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\Studio\UnitTests\StudioTestFacility.cpp">
       <Filter>UnitTests</Filter>
     </ClCompile>
@@ -1103,9 +1100,6 @@
       <Filter>Rendering</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\Studio\Rendering\OpenGLWidgetCallback.h">
-      <Filter>Rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\Studio\Rendering\TextureManager.h">
       <Filter>Rendering</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\Studio\UnitTests\StudioTestFacility.h">

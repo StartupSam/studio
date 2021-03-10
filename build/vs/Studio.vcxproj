@@ -237,7 +237,6 @@
     <ClCompile Include="..\..\src\Studio\Rendering\OpenGLWidget.moc.cpp" />
     <ClCompile Include="..\..\src\Studio\Rendering\OpenGLWidget2DHelpers.cpp" />
     <ClCompile Include="..\..\src\Studio\Rendering\OpenGLWidgetCallback.cpp" />
-    <ClCompile Include="..\..\src\Studio\Rendering\TextureManager.cpp" />
     <ClCompile Include="..\..\src\Studio\Resources\StudioResources.rcc.cpp" />
     <ClCompile Include="..\..\src\Studio\UnitTests\StudioTestFacility.cpp" />
     <ClCompile Include="..\..\src\Studio\VideoPlayer.cpp" />
@@ -403,7 +402,6 @@
     <ClInclude Include="..\..\src\Studio\Rendering\OpenGLWidget.h" />
     <ClInclude Include="..\..\src\Studio\Rendering\OpenGLWidget2DHelpers.h" />
     <ClInclude Include="..\..\src\Studio\Rendering\OpenGLWidgetCallback.h" />
-    <ClInclude Include="..\..\src\Studio\Rendering\TextureManager.h" />
     <ClInclude Include="..\..\src\Studio\UnitTests\StudioTestFacility.h" />
     <ClInclude Include="..\..\src\Studio\Version.h" />
     <ClInclude Include="..\..\src\Studio\VideoPlayer.h" />

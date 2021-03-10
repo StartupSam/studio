@@ -30,7 +30,6 @@
 #include <DSP/Channel.h>
 #include <QOpenGLWidget>
 #include <QOpenGLFunctions>
-#include "TextureManager.h"
 #include "OpenGLWidgetCallback.h"
 #include <QPainter>
 
@@ -84,9 +83,6 @@ class OpenGLWidget : public QOpenGLWidget, protected QOpenGLFunctions
 		void InitFont();
 		void DestructFont();
 
-		// texture manager
-		TextureManager* GetTextureManager()							{ return mTextureManager; }
-		
 		void EnableTimeline(double height)							{ mHasTimeline=true; mTimelineHeight=height; }
 
 		void SetCallback(OpenGLWidgetCallback* callback)			{ mCallback = callback; }
@@ -122,9 +118,6 @@ class OpenGLWidget : public QOpenGLWidget, protected QOpenGLFunctions
 		OpenGLWidgetCallback*			mCallback;
     
         QOpenGLContext*                 mContext;
-
-		// texture manager
-		TextureManager*					mTextureManager;
 
 		// text rendering
 		FONScontext*					mFontStashContext;

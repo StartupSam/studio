@@ -44,7 +44,6 @@ using namespace Core;
 OpenGLWidget::OpenGLWidget(QWidget* parent) : QOpenGLWidget(parent)
 {
 	mAsyncNeedsReInit	= false;
-	mTextureManager		= NULL;
 
 	mWidth				= 0;
 	mHeight				= 0;
@@ -94,9 +93,6 @@ OpenGLWidget::~OpenGLWidget()
 {
 	// delete font stash context
 	DestructFont();
-
-	// get rid of the texture manager
-	delete mTextureManager;
 
 	// unregister OpenGL widget
 	GetOpenGLManager()->UnregisterOpenGLWidget(this);
@@ -170,10 +166,6 @@ void OpenGLWidget::initializeGL()
 	QOpenGLWidget::initializeGL();
 
 	initializeOpenGLFunctions();
-
-	// reinitialize texture manager
-	delete mTextureManager;
-	mTextureManager = new TextureManager();
 
 	// re-register OpenGL widget
 	GetOpenGLManager()->UnregisterOpenGLWidget(this);
