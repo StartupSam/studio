@@ -209,20 +209,6 @@ void OpenGLManager::LogOpenGLContext(QOpenGLContext* context)
 	//	LogDebug( "      %s", extensions[i].data() );
 }
 
-
-void OpenGLManager::OnScheduleAsyncReInit(OpenGLWidget* widget)
-{
-	const uint32 numItems = mOpenGLItems.Size();
-	for (uint32 i=0; i<numItems; ++i)
-	{
-		if (mOpenGLItems[i]->GetOpenGLWidget() == NULL)
-			continue;
-
-		mOpenGLItems[i]->GetOpenGLWidget()->ScheduleAsyncReInit();
-	}
-}
-
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // constructor
